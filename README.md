@@ -2,6 +2,7 @@
 
 ## Contents
 - [Version](#version)
+- [Software Tools Used](#software-tools-used)
 - [Phaser Usage and Explanation](#phaser-usage-and-explanation)
 
 ## Version
@@ -13,6 +14,11 @@ What currently works:
 
 What currently doesn't work:
 - The game isn't resizing to the device window despite being told to resize to the viewing window (initialized in Sprite_Page.html).
+
+## Software Tools Used
+- Cordova
+- Phaser Physics Engine
+- HTML5, CSS, JavaScript
 
 ## Phaser Usage and Explanation
 
