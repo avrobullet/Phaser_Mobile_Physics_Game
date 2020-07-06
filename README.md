@@ -1,8 +1,8 @@
 # Project Archimedes: A Phaser Physics Mobile Game
 
 ## Contents
-- [Version][#version]
-- [Phaser Usage and Explanation][#phaser-usage-and-explanation]
+- [Version](#version)
+- [Phaser Usage and Explanation](#phaser-usage-and-explanation)
 
 ## Version
 
