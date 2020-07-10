@@ -1,6 +1,14 @@
 //get canvas information
 var canvas = document.getElementById("Canvas"); 
 var canvas_Context = canvas.getContext("2d");
+var prevX = 0,
+    currX = 0,
+    prevY = 0,
+    currY = 0,
+    flag = false,
+    dot_flag = false,
+    weird_orange = '#f2895c';
+
 canvas.height = window.screen.height;   
 canvas.width = window.screen.width; 
 var button1 = document.getElementById("goButton");
@@ -26,27 +34,26 @@ var Coords;
 //array for just y values test
 var yCoords = [0]; 
 //checks to see if drawing has been done, and can send cords to the engine. 
-var updateReady = false; 
+var updateReady = false;
+
 //draw a starting location on the canvas. 
 var draw_Circle = function(X,Y)
 {
-    
     canvas_Context.beginPath(); 
     canvas_Context.lineWidth=5;
     canvas_Context.arc(X, Y, 25, 0, 2*Math.PI); 
     canvas_Context.moveTo(X,Y); 
     canvas_Context.stroke(); 
-    canvas_Context.strokeStyle='#f2895c'
+    canvas_Context.strokeStyle=weird_orange
     canvas_Context.lineTo(canvas.width,Y); 
     canvas_Context.stroke(); 
-    canvas_Context.closePath(); 
-      
+    canvas_Context.closePath();
 }
 
 //methods for drawing
 var setTouchDrawingTrue = function (e) 
 {
-    //move cords to new start location. 
+    //move cords to new start location.
     canvas_Context.moveTo(e.touches[0].clientX-this.offsetLeft, e.touches[0].clientY - this.offsetTop);
     //prevent scrolling
     event.preventDefault(); 
@@ -211,10 +218,63 @@ var loadCanvas = function()
     canvas_Context.restore();
 }
 
+function draw() {
+    canvas_Context.beginPath();
+    canvas_Context.moveTo(prevX, prevY);
+    canvas_Context.lineTo(currX, currY);
+    canvas_Context.strokeStyle = weird_orange;
+    canvas_Context.lineWidth = 5;
+    canvas_Context.stroke();
+    canvas_Context.closePath();
+}
+
+function findxy(res, e) {
+    if (res == 'down') {
+        prevX = currX;
+        prevY = currY;
+        currX = e.clientX - canvas.offsetLeft;
+        currY = e.clientY - canvas.offsetTop;
+
+        flag = true;
+        dot_flag = true;
+        if (dot_flag) {
+            canvas_Context.beginPath();
+            canvas_Context.fillStyle = weird_orange;
+            canvas_Context.fillRect(currX, currY, 2, 2);
+            canvas_Context.closePath();
+            dot_flag = false;
+        }
+    }
+    if (res == 'up' || res == "out") {
+        flag = false;
+    }
+    if (res == 'move') {
+        if (flag) {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas.offsetLeft;
+            currY = e.clientY - canvas.offsetTop;
+            draw();
+        }
+    }
+}
+
 //event listeners for drawing with finger on touch screen
-canvas.addEventListener('touchstart',   setTouchDrawingTrue,  false ); 
-canvas.addEventListener("touchmove",    touchDraw,            false ); 
-canvas.addEventListener("touchend",     setDrawingFalse,      false ); 
+canvas.addEventListener('touchstart',   setTouchDrawingTrue,  false );
+canvas.addEventListener("touchmove",    touchDraw,            false );
+canvas.addEventListener("touchend",     setDrawingFalse,      false );
+canvas.addEventListener("mousemove", function (e) {
+    findxy('move', e) }, false);
+canvas.addEventListener("mousedown", function (e) {
+    findxy('down', e)
+}, false);
+canvas.addEventListener("mouseup", function (e) {
+    findxy('up', e)
+}, false);
+canvas.addEventListener("mouseout", function (e) {
+    findxy('out', e)
+}, false);
+
 //checks to see if the window gets resized
 window.addEventListener('load',              resize,          false );
 window.addEventListener('orientationchange', resize,          false ); 
