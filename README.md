@@ -10,7 +10,7 @@
 ### Version 1.0
 What currently works:
 - Switching between pages without causing the physics engine to load info to other pages that should only be specific to ONE page
-- +Solved a work around when switching between pages by having each page jump to another (SPRITE<->CANVAS). Error 404 occurs whenever Comparison.js is involved somehow.
+- Solved a work around when switching between pages by having each page jump to another (SPRITE<->CANVAS). Error 404 occurs whenever Comparison.js is involved somehow.
 
 What currently doesn't work:
 - The game isn't resizing to the device window despite being told to resize to the viewing window (initialized in Sprite_Page.html).
@@ -27,8 +27,8 @@ I'll try to make as simple as possible, but the best way to explain how the phys
 1) What you'll need to do is create an object of Phaser in order to use all of it's methods and engines (in our case it'll
 be P2):
     
-    `game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.AUTO);`
-    `<!--The parameters are self-explanatory except for Phaser.AUTO. This allows Phaser to use WebGL to run things on the webapge-->`
+    `game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.AUTO);
+    <!--The parameters are self-explanatory except for Phaser.AUTO. This allows Phaser to use WebGL to run things on the webapge-->`
 
 2) Allow the following .js files to have their objects be used by the game instance:
     game.state.add("Boot", Boot);
