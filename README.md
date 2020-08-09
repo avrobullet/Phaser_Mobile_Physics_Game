@@ -3,7 +3,9 @@
 ## Contents
 - [Version](#version)
 - [Software Tools Used](#software-tools-used)
+- [Installation Instructions](#installation-instructions)
 - [Phaser Usage and Explanation](#phaser-usage-and-explanation)
+- [Credit](#credit)
 
 ## Version
 
@@ -19,6 +21,24 @@ What currently doesn't work:
 - Cordova
 - Phaser Physics Engine
 - HTML5, CSS, JavaScript
+
+## Installation Instructions
+
+The following steps are needed to install and run this project on your own local machine!
+
+1. Installing Cordova
+The [following instructions](https://cordova.apache.org/docs/en/latest/guide/cli/) from the Apache Cordova team are sufficient for this project:
+	* Install the cordova module using npm utility of Node.js. The cordova module will automatically be downloaded by the npm utility:
+	 	For OSX/Linux: `$ sudo npm install -g cordova`
+		For Windows: `YOUR_HOME_DIRECTORY:\>npm install -g cordova`
+
+2. Cloning/downloading this project
+	* Create a directory to house the game's code. You can either download the game in its entirety [here](https://github.com/avrobullet/Phaser_Mobile_Physics_Game/archive/master.zip), or simply clone it through your terminal:
+		`git clone https://github.com/avrobullet/Phaser_Mobile_Physics_Game.git`
+
+3. Running this project
+	* Once you have the above completed, simply go into the game directory and run the following in your terminal:
+		`cordova build run`
 
 ## Phaser Usage and Explanation
 
@@ -184,6 +204,7 @@ Jumping into Main.js, "Main" (which is represented as the Main variable called e
 		   }
 	
 
+## Credit
 Credit where it's due:
 
 I followed the tutorial given here: https://www.codeandweb.com/physicseditor/tutorials/phaser-p2-physics-example-tutorial
