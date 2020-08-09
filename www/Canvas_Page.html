@@ -8,11 +8,11 @@
     <title>CANVAS</title>
     <script type = "text/javascript" src="UserInfo.js"></script>
     <script type = "text/javascript" src="js/UserInfo.js"></script>
-    
+
     <script>
-        //setCanvasSize(); 
+        setCanvasSize();
     </script>
-    
+
     
     <!--Gives text and button aligning options-->
     <style>
@@ -22,7 +22,6 @@
         .alignright {
             float: right;
         }
-        //Overlays the username onto the canvas
         .overlayName
         {
             z-index:        2;
@@ -60,11 +59,9 @@
      function storeDS(array)
         {
             //stores d.s. generated from drawn graph
-            var ds = array; 
-            // var ds = array;
+            var ds = array;
             localStorage.ds = JSON.stringify(ds);
             window.location.href = 'Sprite_Page.html'+ '#' + 'FALSE';
-           
         }
      function goToWorld()
      {

@@ -5,7 +5,8 @@
   "cordova": {
     "platforms": [
       "android",
-      "browser"
+      "browser",
+      "ios"
     ],
     "plugins": {
       "cordova-plugin-whitelist": {}
@@ -13,9 +14,11 @@
   },
   "dependencies": {
     "cordova-android": "~6.0.0",
-    "cordova-browser": "^6.0.0"
+    "cordova-browser": "^6.0.0",
+    "node-gyp": "^7.0.0"
   },
   "devDependencies": {
+    "cordova-ios": "^6.1.0",
     "cordova-plugin-whitelist": "1"
   }
 }
