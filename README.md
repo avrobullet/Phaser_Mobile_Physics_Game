@@ -10,12 +10,13 @@
 ## Version
 
 ### Version 1.0
-What currently works:
+What works:
 - Switching between pages without causing the physics engine to load info to other pages that should only be specific to ONE page
 - Solved a work around when switching between pages by having each page jump to another (SPRITE<->CANVAS). Error 404 occurs whenever Comparison.js is involved somehow.
 
-What currently doesn't work:
+What doesn't:
 - The game isn't resizing to the device window despite being told to resize to the viewing window (initialized in Sprite_Page.html).
+- There is currently no mouse functionality.
 
 ## Software Tools Used
 - Cordova
@@ -31,7 +32,8 @@ The [following instructions](https://cordova.apache.org/docs/en/latest/guide/cli
 	* Install the cordova module using npm utility of Node.js. The cordova module will automatically be downloaded by the npm utility:
 	
 	 	For OSX/Linux: `$ sudo npm install -g cordova`
-		For Windows: `YOUR_HOME_DIRECTORY:\>npm install -g cordova`
+		
+		For Windows: `YOUR_MAIN_DRIVE:\>npm install -g cordova`
 
 2. Cloning/downloading this project:
 	* Create a directory to house the game's code. You can either download the game in its entirety [here](https://github.com/avrobullet/Phaser_Mobile_Physics_Game/archive/master.zip), or simply clone it through your terminal:
