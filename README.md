@@ -27,8 +27,8 @@ I'll try to make as simple as possible, but the best way to explain how the phys
 1) What you'll need to do is create an object of Phaser in order to use all of it's methods and engines (in our case it'll
 be P2):
     
-    	game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.AUTO);
     	<!--The parameters are self-explanatory except for Phaser.AUTO. This allows Phaser to use WebGL to run things on the webapge-->
+    	game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.AUTO);
 
 2) Allow the following .js files to have their objects be used by the game instance:
     
@@ -45,7 +45,8 @@ and into create():
     
     	<!--ScaleManager.SHOW_ALL allows the current game instance to show the entire game display while still maintaining the aspect ratio-->
     	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-    	<!--game instance then jumps into the Preload.js-->
+    	
+	<!--game instance then jumps into the Preload.js-->
     	this.game.state.start("Preload");
 
 5) Jumping into Preload.js, "Preload" (which is represented as the Preload variable called earlier in state.add) loads
@@ -75,7 +76,6 @@ Jumping into Main.js, "Main" (which is represented as the Main variable called e
 	    
 	    <!--Sets blockShape to have a rectangle perimeter-->    	
 	    blockShape.ctx.rect(0, 0, this.game.world.width, 200);
-
 
 	    <!--The fill pattern for blockShape will now be black-->
 	    blockShape.ctx.fillStyle = '000';
@@ -119,8 +119,7 @@ Jumping into Main.js, "Main" (which is represented as the Main variable called e
 	    <!--Create the buttons in the game-->
 	    createButtons: function()
 	    {
-		this.buttonSprite = this.game.add.button(this.game.world.centerX-50, this.game.world.centerY+240, "button_goSprite",
-		      this.setSpriteToGo, this);
+		this.buttonSprite = this.game.add.button(this.game.world.centerX-50, this.game.world.centerY+240, "button_goSprite", this.setSpriteToGo, this);
 		this.buttonCanvas = this.game.add.button(this.game.world.centerX+375, this.game.world.centerY-300, "button_goCanvas", this.goToCanvas, this);
 		this.buttonScore  = this.game.add.button(this.game.world.centerX-500, this.game.world.centerY-300, "button_goScore", this.goToScore, this);
 	    },
@@ -131,12 +130,12 @@ Jumping into Main.js, "Main" (which is represented as the Main variable called e
 	    {
 		if(this.arrayIndex < speedValues.length)
 		{
-			this.nextSpeed = speedValues[this.arrayIndex];
+		     this.nextSpeed = speedValues[this.arrayIndex];
 		}
 		else
 		{
-			//sets the speed to the degault setting
-			this.nextSpeed = 0;
+		     //sets the speed to the degault setting
+		     this.nextSpeed = 0;
 		}
 		this.arrayIndex += 1;
 	    }
