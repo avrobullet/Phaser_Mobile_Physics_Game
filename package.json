@@ -13,7 +13,7 @@
     }
   },
   "dependencies": {
-    "cordova-android": "~6.0.0",
+    "cordova-android": "~11.0.0",
     "cordova-browser": "^6.0.0",
     "node-gyp": "^7.0.0"
   },
